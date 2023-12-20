@@ -80,6 +80,6 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
     ],
-    extras_require={':python_version < "3.0"': ["Django<2.0"]},
+    install_requires=["Django<3.0"],
     include_package_data=True,
 )
