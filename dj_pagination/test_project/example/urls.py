@@ -29,11 +29,11 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django.conf.urls import url
+from django.urls import re_path
 from example import views
 
 
 urlpatterns = [
-    url(r"^list/$", views.list),
-    url(r"^complex-list/$", views.complex_list)
+    re_path(r"^list/$", views.list),
+    re_path(r"^complex-list/$", views.complex_list)
 ]

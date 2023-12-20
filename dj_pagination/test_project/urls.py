@@ -28,9 +28,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django.conf.urls import url, include
+from django.urls import include, re_path
 
 # Empty patterns so that test project can be started and would work normally
 urlpatterns = [
-    url("", include("example.urls"))
+    re_path("", include("example.urls"))
 ]
