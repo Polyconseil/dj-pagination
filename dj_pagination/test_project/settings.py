@@ -28,27 +28,41 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-import sys
 import os
 
 # Add this directory to path so that 'example' can be imported later
 # below. Without this the runner will fail when started via ``setup.py
 # test``
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.dirname(ROOT_DIR))
 
-from django_testproject.settings import gen_settings
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
+INSTALLED_APPS = [
+    "dj_pagination.test_project.example",
+    "dj_pagination",
+    "django_testproject",
+]
 
-locals().update(
-    gen_settings(
-        INSTALLED_APPS=["example", "dj_pagination"],
-        MIDDLEWARE_CLASSES=["dj_pagination.middleware.PaginationMiddleware"],
-        TEMPLATE_CONTEXT_PROCESSORS=[
-            # Request processor needs to be enabled
-            "django.core.context_processors.request"
-        ],
-        ROOT_URLCONF="dj_pagination.test_project.urls",
-    ),
-    TEMPLATE_LOADERS=["django.template.loaders.app_directories.Loader"],
-    SECRET_KEY="not for production",
-)
+MIDDLEWARE = ["dj_pagination.middleware.PaginationMiddleware"]
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+            ],
+        }
+    }
+]
+
+ROOT_URLCONF = "dj_pagination.test_project.urls"
+
+TEMPLATE_LOADERS = ["django.template.loaders.app_directories.Loader"]
+
+SECRET_KEY = "not for production"

@@ -29,22 +29,21 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 
 
 def list(request):
-    return render_to_response(
-        "example/list.html", {"item_list": range(1000)}, RequestContext(request)
+    return render(
+        request, "example/list.html", {"item_list": range(1000)},
     )
 
 
 def complex_list(request):
-    return render_to_response(
+    return render(
+        request,
         "example/two_lists.html",
         {
             "first_item_list": ["first list item %d" % item for item in range(1000)],
             "second_item_list": ["second list item %d" % item for item in range(1000)],
         },
-        RequestContext(request),
     )

@@ -2,6 +2,12 @@ Version History
 ***************
 
 
+Next version
+============
+
+* Drop support for Django 2.2 and 3.0, add support for Django 3.2
+
+
 .. _version_2_4_0:
 
 Version 2.4.0

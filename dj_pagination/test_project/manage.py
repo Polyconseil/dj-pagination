@@ -30,16 +30,13 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-import logging
-
-from django.core.management import execute_manager
-
-try:
-    from dj_pagination.test_project import settings
-except ImportError as ex:
-    logging.exception("Unable to import application settings")
-    raise SystemExit(ex)
+import os
+import sys
 
 
 if __name__ == "__main__":
-    execute_manager(settings)
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dj_pagination.test_project.settings")
+
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(sys.argv)
