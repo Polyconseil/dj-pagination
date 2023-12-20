@@ -18,7 +18,7 @@
   {% if display_page_links %}
   {% for page in pages %}
   {% if page %}
-  {% ifequal page page_obj.number %}
+  {% if page == page_obj.number %}
   <span class="current page">{{ page }}</span>
   {% else %}
   {% if disable_link_for_first_page and page == 1 %}
@@ -26,7 +26,7 @@
   {% else %}
   <a href="?page{{ page_suffix }}={{ page }}{{ getvars }}" class="page">{{ page }}</a>
   {% endif %}
-  {% endifequal %}
+  {% endif %}
   {% else %}
   ...
   {% endif %}
