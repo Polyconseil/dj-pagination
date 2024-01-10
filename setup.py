@@ -67,6 +67,8 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Framework :: Django :: 3.2",
+        "Framework :: Django :: 4.2",
+        "Framework :: Django :: 5.0",
         "Environment :: Web Environment",
         "Framework :: Django",
         "Intended Audience :: Developers",
@@ -77,6 +79,6 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
     ],
-    install_requires=["Django<4.0"],
+    install_requires=["Django<5.1"],
     include_package_data=True,
 )

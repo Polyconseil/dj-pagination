@@ -5,6 +5,7 @@ Version History
 Next version
 ============
 
+* Add support for Django 4.2 and 5.0
 * Add support for Python 3.8 to 3.10
 * Drop support for Django 2.2 and 3.0, add support for Django 3.2
 
